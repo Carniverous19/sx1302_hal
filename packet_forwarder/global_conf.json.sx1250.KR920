@@ -13,16 +13,12 @@
     "radio_0": {
       "enable": true,
       "type": "SX1250",
-      "freq": 923000000,
-<<<<<<< HEAD:packet_forwarder/global_conf.json.sx1250.AS923.AS1
-      "rssi_offset": -207,
-=======
+      "freq": 922400000,
       "rssi_offset": -215.4,
->>>>>>> 91bf7f681a393b72c459715979522278b79e41ee:packet_forwarder/global_conf.json.sx1250.AS923
       "rssi_tcomp": {"coeff_a": 0, "coeff_b": 0, "coeff_c": 20.41, "coeff_d": 2162.56, "coeff_e": 0},
       "tx_enable": true,
-      "tx_freq_min": 921600000,
-      "tx_freq_max": 923600000,
+      "tx_freq_min": 920900000,
+      "tx_freq_max": 923300000,
       "tx_gain_lut":[
           {"rf_power": 12, "pa_gain": 1, "pwr_idx": 6},
           {"rf_power": 13, "pa_gain": 1, "pwr_idx": 7},
@@ -40,87 +36,86 @@
           {"rf_power": 25, "pa_gain": 1, "pwr_idx": 19},
           {"rf_power": 26, "pa_gain": 1, "pwr_idx": 21},
           {"rf_power": 27, "pa_gain": 1, "pwr_idx": 22}
-      ]
+        ]
     },
     "radio_1": {
       "enable": true,
       "type": "SX1250",
-      "freq": 922000000,
-<<<<<<< HEAD:packet_forwarder/global_conf.json.sx1250.AS923.AS1
-      "rssi_offset": -207,
-=======
+      "freq": 923000000,
       "rssi_offset": -215.4,
->>>>>>> 91bf7f681a393b72c459715979522278b79e41ee:packet_forwarder/global_conf.json.sx1250.AS923
       "rssi_tcomp": {"coeff_a": 0, "coeff_b": 0, "coeff_c": 20.41, "coeff_d": 2162.56, "coeff_e": 0},
       "tx_enable": false
     },
     "chan_multiSF_0": {
       "enable": true,
       "radio": 0,
-      "if": 200000
+      "if": -300000
     },
     "chan_multiSF_1": {
       "enable": true,
       "radio": 0,
-      "if": 400000
+      "if": -100000
     },
     "chan_multiSF_2": {
       "enable": true,
-      "radio": 1,
-      "if": 200000
+      "radio": 0,
+      "if": 100000
     },
     "chan_multiSF_3": {
       "enable": true,
-      "radio": 1,
-      "if": 400000
+      "radio": 0,
+      "if": 300000
     },
     "chan_multiSF_4": {
       "enable": true,
-      "radio": 0,
-      "if": -400000
+      "radio": 1,
+      "if": -100000
     },
     "chan_multiSF_5": {
       "enable": true,
-      "radio": 0,
-      "if": -200000
+      "radio": 1,
+      "if": 100000
     },
     "chan_multiSF_6": {
       "enable": true,
-      "radio": 0,
-      "if": 0
+      "radio": 1,
+      "if": 300000
     },
     "chan_multiSF_7": {
-      "enable": true,
-      "radio": 1,
-      "if": 0
+      "enable": false
     },
     "chan_Lora_std": {
-      "enable": true,
-      "radio": 1,
-      "if": 100000,
-      "bandwidth": 250000,
-      "spread_factor": 7
+      "enable": false
     },
     "chan_FSK": {
-      "enable": true,
-      "radio": 1,
-      "if": -200000,
-      "bandwidth": 125000,
+      "enable": false,
+      "radio": 0,
+      "if": -600000,
+      "bandwidth": 250000,
       "datarate": 100000
     }
   },
   "gateway_conf": {
-    "gps_i2c_path": "/dev/i2c-1",
-    "gateway_ID": "AA555A0000000000",
-    "server_address": "localhost",
-    "serv_port_up": 1680,
-    "serv_port_down": 1680,
-    "keepalive_interval": 10,
-    "stat_interval": 30,
-    "push_timeout_ms": 100,
-    "forward_crc_valid": true,
-    "forward_crc_error": false,
-    "forward_crc_disabled": false
+      "gateway_ID": "AA555A0000000000",
+      /* change with default server address/ports */
+      "server_address": "localhost",
+      "serv_port_up": 1680,
+      "serv_port_down": 1680,
+      /* adjust the following parameters for your network */
+      "keepalive_interval": 10,
+      "stat_interval": 30,
+      "push_timeout_ms": 100,
+      /* forward only valid packets */
+      "forward_crc_valid": true,
+      "forward_crc_error": false,
+      "forward_crc_disabled": false
+  },
+
+  "debug_conf": {
+      "ref_payload":[
+          {"id": "0xCAFE1234"},
+          {"id": "0xCAFE2345"}
+      ],
+      "log_file": "loragw_hal.log"
   }
 }
-
